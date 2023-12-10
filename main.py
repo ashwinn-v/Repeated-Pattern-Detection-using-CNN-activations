@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from PIL import Image, ImageFilter
-from scipy.ndimage.filters import maximum_filter, gaussian_filter
+from scipy.ndimage import maximum_filter, gaussian_filter
 from scipy.stats import multivariate_normal
 from skimage.feature import peak_local_max
 
@@ -38,7 +38,7 @@ def load_image(img_path):
 model = alexnet_conv_layers()
 model.to(dev)
 
-img_path = "dotted2.png"
+img_path = "/workspace/ashwinv/Repeated-Pattern-Detection-using-CNN-activations/building.bmp"
 image = load_image(img_path)
 
 #conv features computation
@@ -228,6 +228,6 @@ for ri in range(100):
         tmp_box = np.asarray([min_c, min_r, dstar[1], dstar[0]])
         boxes.append(tmp_box)
 
-custom_plot(tmp_img, boxes)
+custom_plot(image, 'Repeated-Pattern-Detection-using-CNN-activations/images/out.jpg', box, polygons)
 
 pass
